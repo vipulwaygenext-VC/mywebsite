@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface AnimatedSectionProps {
@@ -16,6 +17,9 @@ export function AnimatedSection({
   delay = 0,
   direction = 'up',
 }: AnimatedSectionProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const directionMap = {
     up:    { y: 28, x: 0 },
     down:  { y: -28, x: 0 },
@@ -28,8 +32,7 @@ export function AnimatedSection({
 
   return (
     <motion.div
-      initial={{ opacity: 0, x, y }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      {...(mounted ? { initial: { opacity: 0, x, y }, whileInView: { opacity: 1, x: 0, y: 0 } } : {})}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       className={cn(className)}

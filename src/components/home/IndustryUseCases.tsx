@@ -71,8 +71,8 @@ export function IndustryUseCases() {
       <div className="container-xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-14"
@@ -109,9 +109,9 @@ export function IndustryUseCases() {
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
+            initial={{ y: 16 }}
+            animate={{ y: 0 }}
+            exit={{ y: -16 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
             className="bg-white rounded-3xl p-8 lg:p-12 border border-gray-100 shadow-glass"
           >

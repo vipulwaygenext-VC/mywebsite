@@ -95,8 +95,8 @@ export function ContactForm() {
   if (formState === 'success') {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1 }}
         className="bg-white rounded-3xl p-10 border border-gray-100 text-center"
       >
         <div className="w-20 h-20 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -137,9 +137,9 @@ export function ContactForm() {
       <AnimatePresence>
         {toast && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            initial={{ y: -8 }}
+            animate={{ y: 0 }}
+            exit={{ y: -8 }}
             transition={{ duration: 0.2 }}
             className="flex items-start gap-3 mb-6 px-4 py-3.5 bg-red-50 border border-red-200 rounded-xl"
           >

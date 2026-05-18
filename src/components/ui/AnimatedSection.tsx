@@ -32,7 +32,7 @@ export function AnimatedSection({
 
   return (
     <motion.div
-      {...(mounted ? { initial: { opacity: 0, x, y }, whileInView: { opacity: 1, x: 0, y: 0 } } : {})}
+      {...(mounted ? { initial: { x, y }, whileInView: { x: 0, y: 0 } } : {})}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       className={cn(className)}
@@ -43,17 +43,15 @@ export function AnimatedSection({
 }
 
 export const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: {},
   show: {
-    opacity: 1,
     transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
 
 export const staggerItem = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { y: 24 },
   show: {
-    opacity: 1,
     y: 0,
     transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   },

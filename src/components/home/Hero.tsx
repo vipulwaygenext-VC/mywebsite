@@ -58,7 +58,7 @@ export function Hero() {
           {/* Left — Copy */}
           <div>
             <motion.div
-              {...a({ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } })}
+              {...a({ initial: { y: 20 }, animate: { y: 0 } })}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-brand-500/10 border border-brand-500/20 rounded-full text-brand-400 text-sm font-medium mb-8"
             >
@@ -67,7 +67,7 @@ export function Hero() {
             </motion.div>
 
             <motion.h1
-              {...a({ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } })}
+              {...a({ initial: { y: 24 }, animate: { y: 0 } })}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white leading-[1.08] tracking-tight mb-6"
             >
@@ -81,7 +81,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              {...a({ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } })}
+              {...a({ initial: { y: 24 }, animate: { y: 0 } })}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-gray-400 mb-10 max-w-lg leading-relaxed"
             >
@@ -90,7 +90,7 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              {...a({ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 } })}
+              {...a({ initial: { y: 24 }, animate: { y: 0 } })}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-4 mb-16"
             >
@@ -112,7 +112,7 @@ export function Hero() {
 
             {/* Stats */}
             <motion.div
-              {...a({ initial: { opacity: 0 }, animate: { opacity: 1 } })}
+              {...a({ initial: {}, animate: {} })}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10"
             >
@@ -127,7 +127,7 @@ export function Hero() {
 
           {/* Right — Dashboard Mockup */}
           <motion.div
-            {...a({ initial: { opacity: 0, scale: 0.95, y: 20 }, animate: { opacity: 1, scale: 1, y: 0 } })}
+            {...a({ initial: { scale: 0.95, y: 20 }, animate: { scale: 1, y: 0 } })}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:block relative"
           >
@@ -186,7 +186,7 @@ export function Hero() {
             {floatingCards.map((card) => (
               <motion.div
                 key={card.title}
-                {...a({ initial: { opacity: 0, scale: 0.8 }, animate: { opacity: 1, scale: 1 } })}
+                {...a({ initial: { scale: 0.8 }, animate: { scale: 1 } })}
                 transition={{ delay: 1, duration: 0.5, ease: 'backOut' }}
                 className={`absolute ${card.pos} bg-white rounded-xl px-4 py-3 shadow-xl flex items-center gap-3`}
               >

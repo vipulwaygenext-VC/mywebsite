@@ -85,8 +85,8 @@ export function PricingCards() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-12"
@@ -127,8 +127,8 @@ export function PricingCards() {
           {PLANS.map((plan, i) => (
             <motion.div
               key={plan.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 24 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`relative rounded-3xl p-8 border transition-all duration-300 flex flex-col ${
@@ -158,9 +158,9 @@ export function PricingCards() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={yearly ? 'yearly' : 'monthly'}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
+                    initial={{ y: 8 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -8 }}
                     transition={{ duration: 0.2 }}
                   >
                     {plan.monthlyPrice ? (
@@ -215,8 +215,6 @@ export function PricingCards() {
 
         {/* Bottom note */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
           className="text-center mt-12"

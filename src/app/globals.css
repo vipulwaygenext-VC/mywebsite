@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  ::selection {
+    @apply bg-brand-500/20 text-brand-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600;
+  }
+
+  .text-gradient-light {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-brand-500;
+  }
+
+  .bg-glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .bg-glass-dark {
+    @apply bg-black/10 backdrop-blur-md border border-black/10;
+  }
+
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Ticker animation */
+.ticker-wrap {
+  overflow: hidden;
+  width: 100%;
+  /* contain paint to avoid compositing full-page layers */
+  contain: paint;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 48s linear infinite;
+  /* promote to GPU compositing layer for jitter-free motion */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.333333%, 0, 0);
+  }
+}
+
+/* ── Legal page content typography ──────────────────────────────────────── */
+.legal-content {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #4b5563;
+}
+
+.legal-content h2 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid #f3f4f6;
+  letter-spacing: -0.01em;
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-content p {
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
+
+.legal-content ul {
+  margin-bottom: 1rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.legal-content ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.legal-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.625rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: #16a34a;
+}
+
+.legal-content strong {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.legal-content a {
+  color: #16a34a;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.legal-content a:hover {
+  text-decoration: underline;
+}
+
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.legal-content table th {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 0.625rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.legal-content table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.625rem 1rem;
+  color: #4b5563;
+  vertical-align: top;
+}
+
+.legal-content table tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+/* ── Smooth hover lift ───────────────────────────────────────────────────── */
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}

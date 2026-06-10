@@ -312,7 +312,7 @@ export function ContactForm() {
               </div>
             </div>
             <span className="text-sm text-gray-600 leading-snug">
-              By clicking on 'Send Message', I agree to receive updates, offers, and promotional communications via SMS, RCS, and WhatsApp, and I accept the{' '}
+              By clicking on &apos;Send Message&apos;, I agree to receive updates, offers, and promotional communications via SMS, RCS, and WhatsApp, and I accept the{' '}
               <a
                 href="/privacy-policy"
                 target="_blank"

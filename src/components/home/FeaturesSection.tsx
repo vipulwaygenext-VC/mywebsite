@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import {
   Phone, MessageSquare, Bot, MessageCircle, Send,
-  BarChart3, Shield, Zap, Globe, Headphones,
+  BarChart3, Shield, Globe, Smartphone,
 } from 'lucide-react';
 import { staggerContainer, staggerItem } from '@/components/ui/AnimatedSection';
 import { Badge } from '@/components/ui/Badge';
@@ -15,7 +15,6 @@ const FEATURES = [
     description:
       'Deploy human-like AI voice agents that handle thousands of calls simultaneously — for support, surveys, reminders, and more.',
     tag: 'AI-Powered',
-    wide: true,
   },
   {
     icon: Phone,
@@ -37,6 +36,13 @@ const FEATURES = [
     description:
       'Transactional and promotional SMS delivered at scale. 99%+ delivery rate with real-time tracking.',
     tag: 'Reliable',
+  },
+  {
+    icon: Smartphone,
+    title: 'RCS Messaging',
+    description:
+      'Elevate your messaging with branded interactions, rich media, verified sender status, and interactive buttons for higher engagement.',
+    tag: 'Next-Gen',
   },
   {
     icon: Send,
@@ -74,8 +80,8 @@ export function FeaturesSection() {
       <div className="container-xl">
         {/* Header */}
         <motion.div
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-16"
@@ -86,7 +92,7 @@ export function FeaturesSection() {
             <span className="text-gradient"> needs to connect</span>
           </h2>
           <p className="text-lg text-gray-500">
-            One platform, five powerful communication channels. Built for enterprise scale,
+            One platform, nine powerful communication channels. Built for enterprise scale,
             designed for simplicity.
           </p>
         </motion.div>
@@ -99,13 +105,11 @@ export function FeaturesSection() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {FEATURES.map((feat, i) => (
+          {FEATURES.map((feat) => (
             <motion.div
               key={feat.title}
               variants={staggerItem}
-              className={`group bg-white rounded-2xl p-7 border border-gray-100 hover:border-brand-200 hover:shadow-glass transition-all duration-300 hover:-translate-y-1 ${
-                feat.wide ? 'lg:col-span-2' : ''
-              }`}
+              className="group bg-white rounded-2xl p-7 border border-gray-100 hover:border-brand-200 hover:shadow-glass transition-all duration-300 hover:-translate-y-1"
             >
               <div className="flex items-start justify-between mb-5">
                 <div className="w-11 h-11 bg-brand-50 group-hover:bg-brand-100 rounded-xl flex items-center justify-center transition-colors">

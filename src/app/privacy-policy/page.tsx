@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <div className="bg-gradient-to-br from-gray-900 to-gray-800 py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -101,6 +101,6 @@ export default function PrivacyPolicyPage() {
           <a href="tel:+918882222324">+91 88822 22324</a>.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

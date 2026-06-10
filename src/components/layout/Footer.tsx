@@ -122,14 +122,16 @@ export function Footer() {
             {/* Socials */}
             <div className="flex items-center gap-2.5">
               {[
-                { icon: Facebook,  href: '#', label: 'Facebook'  },
-                { icon: Instagram, href: '#', label: 'Instagram' },
-                { icon: Linkedin,  href: '#', label: 'LinkedIn'  },
+                { icon: Facebook,  href: 'https://www.facebook.com/vaktel',           label: 'Facebook'  },
+                { icon: Instagram, href: 'https://www.instagram.com/vaktel',          label: 'Instagram' },
+                { icon: Linkedin,  href: 'https://www.linkedin.com/company/vaktel',   label: 'LinkedIn'  },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 bg-white/[0.04] hover:bg-brand-600 border border-white/[0.06] hover:border-brand-500/40 rounded-xl flex items-center justify-center transition-all duration-200 text-gray-500 hover:text-white"
                 >
                   <Icon className="w-4 h-4" />

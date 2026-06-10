@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Vaktel',
@@ -8,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <div className="bg-gradient-to-br from-gray-900 to-gray-800 py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -31,7 +30,7 @@ export default function TermsOfServicePage() {
         <h2>2. Services</h2>
         <p>
           Vaktel provides cloud-based communication services including Interactive Voice Response (IVR), Bulk SMS,
-          AI Voice Bots, WhatsApp Business automation, and Outbound Dialing (OBD) campaigns. Specific features,
+          AI Voice Bots, WhatsApp Business automation, RCS (Rich Communication Services), and Outbound Dialing (OBD) campaigns. Specific features,
           limits, and SLAs are defined in the applicable service agreement or order form.
         </p>
 
@@ -115,6 +114,6 @@ export default function TermsOfServicePage() {
           Orchid Business Park, Sector 48, Gurugram, Haryana 122018.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

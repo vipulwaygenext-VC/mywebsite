@@ -51,8 +51,8 @@ export function WhyVaktel() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left — Visual accent */}
           <motion.div
-            initial={{ x: -32 }}
-            whileInView={{ x: 0 }}
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
@@ -99,8 +99,8 @@ export function WhyVaktel() {
           {/* Right — Reasons grid */}
           <div>
             <motion.div
-              initial={{ y: 20 }}
-              whileInView={{ y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6 }}
               className="mb-10"

@@ -24,6 +24,7 @@ const SERVICES_LIST = [
   'Bulk SMS Services',
   'AI Voice Bot',
   'WhatsApp Bot',
+  'RCS Messaging',
   'OBD Campaigns',
   'Location / Target Based Lead Generation',
   'Multiple Services',
@@ -31,10 +32,12 @@ const SERVICES_LIST = [
 ];
 
 export function ContactForm() {
-  const [formState, setFormState] = useState<FormState>('idle');
-  const [errors, setErrors]       = useState<Partial<FormData>>({});
-  const [toast, setToast]         = useState<string | null>(null);
-  const [data, setData]           = useState<FormData>(EMPTY_FORM);
+  const [formState, setFormState]     = useState<FormState>('idle');
+  const [errors, setErrors]           = useState<Partial<FormData>>({});
+  const [toast, setToast]             = useState<string | null>(null);
+  const [data, setData]               = useState<FormData>(EMPTY_FORM);
+  const [privacyAgreed, setPrivacyAgreed] = useState(false);
+  const [privacyError, setPrivacyError]   = useState<string | undefined>(undefined);
 
   const validate = (): boolean => {
     const e: Partial<FormData> = {};
@@ -47,7 +50,9 @@ export function ContactForm() {
     if (!data.message.trim())
       e.message = 'Please write your message';
     setErrors(e);
-    return Object.keys(e).length === 0;
+    if (!privacyAgreed)
+      setPrivacyError('Please provide your consent before submitting the form.');
+    return Object.keys(e).length === 0 && privacyAgreed;
   };
 
   const handleChange = (
@@ -95,8 +100,8 @@ export function ContactForm() {
   if (formState === 'success') {
     return (
       <motion.div
-        initial={{ scale: 0.95 }}
-        animate={{ scale: 1 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         className="bg-white rounded-3xl p-10 border border-gray-100 text-center"
       >
         <div className="w-20 h-20 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -112,6 +117,8 @@ export function ContactForm() {
             setFormState('idle');
             setData(EMPTY_FORM);
             setErrors({});
+            setPrivacyAgreed(false);
+            setPrivacyError(undefined);
           }}
           className="text-sm font-semibold text-brand-600 hover:underline"
         >
@@ -137,9 +144,9 @@ export function ContactForm() {
       <AnimatePresence>
         {toast && (
           <motion.div
-            initial={{ y: -8 }}
-            animate={{ y: 0 }}
-            exit={{ y: -8 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
             className="flex items-start gap-3 mb-6 px-4 py-3.5 bg-red-50 border border-red-200 rounded-xl"
           >
@@ -275,6 +282,56 @@ export function ContactForm() {
           )}
         </div>
 
+        {/* Privacy Policy checkbox */}
+        <div>
+          <label className="flex items-start gap-3 cursor-pointer select-none group">
+            <div className="relative mt-0.5 shrink-0">
+              <input
+                type="checkbox"
+                checked={privacyAgreed}
+                onChange={(e) => {
+                  setPrivacyAgreed(e.target.checked);
+                  if (e.target.checked) setPrivacyError(undefined);
+                }}
+                className="sr-only peer"
+              />
+              <div
+                className={`w-[18px] h-[18px] rounded-[5px] border-2 transition-all duration-150 flex items-center justify-center
+                  ${privacyAgreed
+                    ? 'bg-brand-600 border-brand-600'
+                    : privacyError
+                      ? 'border-red-400 bg-red-50'
+                      : 'border-gray-300 bg-gray-50 group-hover:border-brand-400'
+                  }`}
+              >
+                {privacyAgreed && (
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 12 10" fill="none">
+                    <path d="M1 5l3.5 3.5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <span className="text-sm text-gray-600 leading-snug">
+              By clicking on 'Send Message', I agree to receive updates, offers, and promotional communications via SMS, RCS, and WhatsApp, and I accept the{' '}
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-brand-600 hover:text-brand-700 underline underline-offset-2 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Privacy Policy
+              </a>
+              <span className="text-red-500 ml-0.5">*</span>
+            </span>
+          </label>
+          {privacyError && (
+            <p className="text-xs text-red-500 mt-1.5 flex items-center gap-1 ml-[calc(18px+12px)]">
+              <AlertCircle className="w-3 h-3 shrink-0" /> {privacyError}
+            </p>
+          )}
+        </div>
+
         <button
           type="submit"
           disabled={formState === 'loading'}
@@ -288,7 +345,7 @@ export function ContactForm() {
         </button>
 
         <p className="text-xs text-gray-400 text-center">
-          By submitting, you agree to our Privacy Policy. We never share your data.
+          We never share your data with third parties.
         </p>
       </form>
     </div>

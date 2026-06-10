@@ -11,7 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Vaktel',
+  title: {
+    default: 'Vaktel — Intelligent Business Communication Solutions',
+    template: '%s | Vaktel',
+  },
   description:
     'Vaktel by Waygenext Technologies delivers AI-powered IVR, SMS, WhatsApp Bot, and Voice Bot solutions for enterprise businesses across India. Serving clients since 2009.',
   keywords: [

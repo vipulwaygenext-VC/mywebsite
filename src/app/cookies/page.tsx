@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function CookiePolicyPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       {/* Hero */}
       <div className="bg-gradient-to-br from-gray-900 to-gray-800 py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -134,6 +134,6 @@ export default function CookiePolicyPage() {
           <Link href="/privacy-policy" className="text-brand-600 hover:underline">Privacy Policy</Link>.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

@@ -146,9 +146,9 @@ export function ServiceCards() {
                 variants={staggerItem}
                 className="scroll-mt-24 group rounded-3xl border border-gray-100 hover:border-gray-200 hover:shadow-glass overflow-hidden transition-all duration-300"
               >
-                <div className={`grid lg:grid-cols-2 ${i % 2 !== 0 ? 'lg:flex lg:flex-row-reverse' : ''}`}>
+                <div className="grid lg:grid-cols-2">
                   {/* Content */}
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className={`p-8 lg:p-12 flex flex-col justify-center ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
                     <div className="flex items-start justify-between mb-6">
                       <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${svc.gradient} flex items-center justify-center shadow-lg`}>
                         <svc.icon className="w-7 h-7 text-white" />

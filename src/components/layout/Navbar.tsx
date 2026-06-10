@@ -123,9 +123,9 @@ export function Navbar() {
                 <AnimatePresence>
                   {loginOpen && (
                     <motion.div
-                      initial={{ y: 10, scale: 0.96 }}
-                      animate={{ y: 0, scale: 1 }}
-                      exit={{ y: 10, scale: 0.96 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.96 }}
                       transition={{ duration: 0.18, ease: 'easeOut' }}
                       className="absolute right-0 top-full mt-3 w-72 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
                     >
@@ -185,7 +185,9 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            exit={{}}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => setMobileOpen(false)}
             className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
           />

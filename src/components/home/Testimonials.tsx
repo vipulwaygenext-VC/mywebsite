@@ -67,8 +67,8 @@ export function Testimonials() {
     <section className="bg-white section-padding">
       <div className="container-xl">
         <motion.div
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto mb-16"
@@ -118,6 +118,7 @@ export function Testimonials() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-gray-900">{t.name}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{t.role}, {t.company}</p>
                 </div>
                 <span className="ml-auto text-[10px] font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full whitespace-nowrap">
                   {t.industry}
